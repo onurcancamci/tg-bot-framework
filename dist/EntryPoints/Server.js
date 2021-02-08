@@ -14,7 +14,7 @@ class ServerEntry {
     async Init() {
         await this.rootBoard.Init();
         this.sse = new Sse_1.SseServer(this.config.sse);
-        await this.sse.Init();
+        await this.sse.initDone;
         Util_1.asyncInterval(this.CheckUpdates.bind(this), 500);
     }
     async CheckUpdates() {
