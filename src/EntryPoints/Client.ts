@@ -21,7 +21,7 @@ export class ClientEntry {
   async Init() {
     await this.rootBoard.Init();
     this.sse = new SseClient(this.config.sse);
-    await this.sse.Init();
+    await this.sse.initDone;
     this.sse.on("update", async (update, answerFn) => {
       try {
         const ans = await this.rootBoard.RunThrough(update);
