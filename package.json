@@ -1,6 +1,6 @@
 {
   "name": "tg-bot-framework",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Telegram bot framework to implement custom telegram bots",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -2,7 +2,7 @@ import TelegramBot = require("node-telegram-bot-api");
 import { Board } from "../Board";
 import { Bot } from "../Bot";
 import { ISseConfigServer, SseServer } from "../Sse";
-import { asyncInterval, extractMsg } from "../Util";
+import { asyncInterval, extractMsg, GlobalEvents } from "../Util";
 
 const RunOnClientRegexp = /on client \$(?<client>\w+)/g;
 
@@ -27,6 +27,14 @@ export class ServerEntry {
     this.sse = new SseServer(this.config.sse);
     await this.sse.initDone;
     asyncInterval(this.CheckUpdates.bind(this), 500);
+    GlobalEvents.on("forward", async (update, all) => {
+      for (const clientName in this.sse.clients) {
+        const res = await this.sse.clients[clientName].SendUpdate(update);
+        if (res && !all) {
+          return true;
+        }
+      }
+    });
   }
 
   async CheckUpdates() {
