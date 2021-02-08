@@ -1,0 +1,1 @@
+{"version":3,"file":"Hook.js","sourceRoot":"","sources":["../src/Hook.ts"],"names":[],"mappings":";;;AAIA,MAAa,IAAI;IACf,MAAM,CAAC,KAAK,CACV,MAA0B,EAC1B,GAAS,EACT,KAAa;QAEb,OAAO,KAAK,CAAC;IACf,CAAC;IAED,MAAM,CAAC,OAAO,CACZ,MAA0B,EAC1B,GAAS,EACT,KAAa;QAEb,OAAO,KAAK,CAAC;IACf,CAAC;CACF;AAhBD,oBAgBC"}

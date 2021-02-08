@@ -1,8 +1,9 @@
 {
-  "name": "telegram-bot-framework",
-  "version": "0.0.1",
+  "name": "tg-bot-framework",
+  "version": "0.0.3",
   "description": "Telegram bot framework to implement custom telegram bots",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +21,20 @@
   "bugs": {
     "url": "https://github.com/onurcancamci/telegram-bot-framework/issues"
   },
-  "homepage": "https://github.com/onurcancamci/telegram-bot-framework#readme"
+  "homepage": "https://github.com/onurcancamci/telegram-bot-framework#readme",
+  "dependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/eventsource": "^1.1.5",
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.25",
+    "@types/node-fetch": "^2.5.8",
+    "@types/node-telegram-bot-api": "^0.51.0",
+    "@types/tgfancy": "^0.13.1",
+    "body-parser": "^1.19.0",
+    "eventsource": "^1.0.7",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "node-telegram-bot-api": "^0.51.0",
+    "tgfancy": "^0.13.0"
+  }
 }
