@@ -16,6 +16,14 @@ class ServerEntry {
         this.sse = new Sse_1.SseServer(this.config.sse);
         await this.sse.initDone;
         Util_1.asyncInterval(this.CheckUpdates.bind(this), 500);
+        Util_1.GlobalEvents.on("forward", async (update, all) => {
+            for (const clientName in this.sse.clients) {
+                const res = await this.sse.clients[clientName].SendUpdate(update);
+                if (res && !all) {
+                    return true;
+                }
+            }
+        });
     }
     async CheckUpdates() {
         const updates = await this.bot.tg.getUpdates({
