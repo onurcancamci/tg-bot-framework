@@ -63,6 +63,7 @@ export class ServerEntry {
       if (msg) {
         const match = msg.matchAll(RunOnClientRegexp);
         const m = match.next();
+        console.log(m.done, m.value.groups, this.sse.clients);
         if (!m.done && m.value.groups) {
           const clientName = m.value.groups.client;
           if (!this.sse.clients[clientName]) {
