@@ -12,6 +12,7 @@ class ServerEntry {
         this.rootBoard = new config.board(bot);
     }
     async Init() {
+        console.log("Init Begin");
         await this.rootBoard.Init();
         this.sse = new Sse_1.SseServer(this.config.sse);
         await this.sse.initDone;
@@ -49,6 +50,7 @@ class ServerEntry {
             if (msg) {
                 const match = msg.matchAll(RunOnClientRegexp);
                 const m = match.next();
+                console.log(m.done, m.value.groups, this.sse.clients);
                 if (!m.done && m.value.groups) {
                     const clientName = m.value.groups.client;
                     if (!this.sse.clients[clientName]) {
