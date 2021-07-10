@@ -23,6 +23,7 @@ export class ServerEntry {
   }
 
   async Init() {
+    console.log("Init Begin");
     await this.rootBoard.Init();
     this.sse = new SseServer(this.config.sse);
     await this.sse.initDone;
